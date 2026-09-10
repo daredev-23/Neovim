@@ -1,9 +1,18 @@
+-- return {
+--   "wnkz/monoglow.nvim",
+--   lazy = false,
+--   priority = 1000,
+--   opts = {},
+--   config = function()
+--     vim.cmd.colorscheme('monoglow-lack')
+--   end,
+-- }
 return {
-  "wnkz/monoglow.nvim",
+  "catppuccin/nvim",
+  name = "catppuccin",
   lazy = false,
   priority = 1000,
-  opts = {},
   config = function()
-    vim.cmd.colorscheme('monoglow-lack')
+    vim.cmd.colorscheme("catppuccin-mocha")
   end,
 }
