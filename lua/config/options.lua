@@ -29,16 +29,18 @@ opt.smartcase                 = true
 opt.hlsearch                  = false
 opt.mouse                     = "a"
 
--- INTEGRACIÓN CON PORTAPAPELES DE TERMUX
-vim.g.clipboard               = {
-  name = "termux-clipboard",
-  copy = {
-    ["+"] = "termux-clipboard-set",
-    ["*"] = "termux-clipboard-set",
-  },
-  paste = {
-    ["+"] = "termux-clipboard-get",
-    ["*"] = "termux-clipboard-get",
-  },
-  cache_enabled = true,
-}
+-- INTEGRACIÓN CON PORTAPAPELES DEL SISTEMA
+if vim.fn.has("wsl") == 1 then
+  vim.g.clipboard = {
+    name = "win32yank-wsl",
+    copy = {
+      ["+"] = "win32yank.exe -i --crlf",
+      ["*"] = "win32yank.exe -i --crlf",
+    },
+    paste = {
+      ["+"] = "win32yank.exe -o --lf",
+      ["*"] = "win32yank.exe -o --lf",
+    },
+    cache_enabled = true,
+  }
+end
