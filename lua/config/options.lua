@@ -30,17 +30,4 @@ opt.hlsearch                  = false
 opt.mouse                     = "a"
 
 -- INTEGRACIÓN CON PORTAPAPELES DEL SISTEMA
-if vim.fn.has("wsl") == 1 then
-  vim.g.clipboard = {
-    name = "win32yank-wsl",
-    copy = {
-      ["+"] = "win32yank.exe -i --crlf",
-      ["*"] = "win32yank.exe -i --crlf",
-    },
-    paste = {
-      ["+"] = "win32yank.exe -o --lf",
-      ["*"] = "win32yank.exe -o --lf",
-    },
-    cache_enabled = true,
-  }
-end
+require('clipboard.debian')
